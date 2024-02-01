@@ -17,6 +17,9 @@ def remove(raw):
 
 
 def normed_data(raw):
+    '''
+        Normalising the data between 0 to 1 using minmaxscaler
+    '''
     scaler = MinMaxScaler()
     names=['Open', 'Close', 'Volume']
     raw[names] = scaler.fit_transform(raw[names])

@@ -1,3 +1,6 @@
+import pandas as pd
+
+
 def scl(X,target_range):
     '''
         standardise the values between [-1,1]

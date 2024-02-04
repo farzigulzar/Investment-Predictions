@@ -19,6 +19,21 @@ def scl(X,target_range):
     # return the scaled X and range
     return X_scl, range
 
+def test_train_split_arima(raw):
+    X=raw['Days']
+    y=raw['Close']
+
+    split = int(len(X)*0.8)
+    X_train = X.iloc[:split]
+    X_test = X.iloc[split:]
+
+    y_train = y.iloc[:split]
+    y_test = y.iloc[split:]
+
+    return X_train, X_test, y_train, y_test
+
+
+
 def test_train_split_lin_reg(raw):
     ''' 
         Return X_train, X_test, y_train, y_test

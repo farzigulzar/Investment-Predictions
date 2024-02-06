@@ -20,6 +20,7 @@ def scl(X,target_range):
     return X_scl, range
 
 def test_train_split_arima(raw):
+    raw.dropna()
     X=raw['Days']
     y=raw['Close']
 
@@ -40,7 +41,7 @@ def test_train_split_lin_reg(raw):
         standardise the values between [-1,1] using scl function
         train/test ratio should be 80/20 
     '''
-    
+    raw.dropna()
     X=raw['Days']
     y=raw['Close']
 

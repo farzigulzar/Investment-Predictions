@@ -1,8 +1,8 @@
 from statsmodels.tsa.arima.model import ARIMA
 from statsmodels.tsa.stattools import adfuller
 import numpy as np
-def ARIMA_model(X,p,d,q):
-    arima_mod = ARIMA(X, order = (p,d,q))
+def ARIMA_model(X,p,d,q, t):
+    arima_mod = ARIMA(X, order = (p,d,q), trend= t)
     model_fit = arima_mod.fit()
 
     return model_fit

@@ -3,9 +3,9 @@ Internship work
 
 
 <!-- requirements  -->
-pandas
+<!-- pandas
 numpy
 sklearn
 matplotlib
 arm-mango
-keras(tensorflow)
+keras(tensorflow) -->

@@ -29,27 +29,27 @@ param_space = dict(p = range(0,30),
                    trend=['n', 'c', 't' , 'ct'])
 
 # Training the ARIMA model
-def arima_obj(args_list):
-    global close_vals
-    params_evaluated = []
-    result = []
+# def arima_obj(args_list):
+#     global close_vals
+#     params_evaluated = []
+#     result = []
 
-    for params in args_list:
-        try:
-            p,d,q = params['p'], params['d'], params['q']
-            trend = params['trend']
+#     for params in args_list:
+#         try:
+#             p,d,q = params['p'], params['d'], params['q']
+#             trend = params['trend']
 
-            model = ARIMA (close_vals, order=(p,d,q), trend = trend)
-            predictions = model.fit()
+#             model = ARIMA (close_vals, order=(p,d,q), trend = trend)
+#             predictions = model.fit()
 
-            mse = mean_squared_error(close_vals, predictions.fittedvalues)
-            params_evaluated.append(params)
-            result.append(mse)
-        except:
-            params_evaluated.append(params)
-            result.append(1e5)
+#             mse = mean_squared_error(close_vals, predictions.fittedvalues)
+#             params_evaluated.append(params)
+#             result.append(mse)
+#         except:
+#             params_evaluated.append(params)
+#             result.append(1e5)
     
-    return params_evaluated, result
+#     return params_evaluated, result
 
 def plot_arima(data_values, order = (1,1,1), trend = 'c'):
     print('final model:', order, trend)
@@ -73,16 +73,18 @@ def plot_arima(data_values, order = (1,1,1), trend = 'c'):
 
 
 close_vals = list(y_train['Close'])
-conf_dict = dict()
-conf_dict['num_iteration'] = 200
+# conf_dict = dict()
+# conf_dict['num_iteration'] = 200
 
 
-tuner = Tuner(param_space, arima_obj, conf_dict)
-results = tuner.minimize()
+# tuner = Tuner(param_space, arima_obj, conf_dict)
+# results = tuner.minimize()
 
 
-print('best parameters:', results['best_params'])
-print('best loss:', results['best_objective'])
+# print('best parameters:', results['best_params'])
+# print('best loss:', results['best_objective'])
 
-order = (results['best_params']['p'], results['best_params']['d'], results['best_params']['q'])
-plot_arima(close_vals, order=order, trend = results['best_params']['trend'])
+order = (26, 0, 29)
+trend = 'ct'
+test_vals = list(y_test['Close'])
+plot_arima(close_vals, order = order, trend = trend)

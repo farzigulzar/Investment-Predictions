@@ -11,4 +11,5 @@ def predict_index(model,x, range ):
     y= model.predict(x)
     y_output, _ = hf.scl(y,range)
 
+
     return y_output

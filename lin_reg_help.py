@@ -13,4 +13,3 @@ def predict_index(model,x, range ):
  
 
     return y_output
-

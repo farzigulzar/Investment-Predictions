@@ -6,7 +6,6 @@ Time series forecasting of NIFTY 50 Index using
 
 ![alt text](https://github.com/farzigulzar/Investment-Predictions/blob/main/predictedVSactuals.png)
 
-
 <!-- requirements  -->
 <!-- pandas
 numpy
